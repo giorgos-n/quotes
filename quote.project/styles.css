@@ -1,0 +1,113 @@
+:root{
+  --bg-gradient: linear-gradient(135deg,#89f7fe 0%,#66a6ff 100%);
+  --bg: #f3f6fb;
+  --text: #111;
+  --card-bg: rgba(255,255,255,0.6);
+  --btn-bg: #4a4aee;
+  --btn-text: #fff;
+  --glass-shadow: 0 8px 32px rgba(31,38,135,0.12);
+  --radius: 14px;
+  --max-w: 420px;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg-gradient);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+body.dark-mode{
+  --bg-gradient: linear-gradient(135deg,#0f1724 0%,#10203a 100%);
+  --bg: #071023;
+  --text: #e9eef8;
+  --card-bg: rgba(10,10,18,0.45);
+  --btn-bg: #6c63ff;
+  --btn-text: #fff;
+  --glass-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+.container{
+  width:100%;
+  max-width:var(--max-w);
+  padding:28px 28px 22px;
+  border-radius:var(--radius);
+  background:var(--card-bg);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position:relative; 
+  text-align:center;
+}
+
+h1{
+  margin:0 0 12px 0;
+  font-size:20px;
+  letter-spacing:0.2px;
+  font-weight:600;
+}
+
+.quote{
+  margin:18px 0;
+  min-height:76px;
+  font-size:18px;
+  line-height:1.4;
+  color:var(--text);
+  transition: opacity 0.38s ease, transform 0.38s ease;
+  opacity:1;
+}
+
+.controls{
+  margin-top:6px;
+}
+
+.btn{
+  width:100%;
+  padding:12px 14px;
+  border-radius:10px;
+  border:0;
+  background:var(--btn-bg);
+  color:var(--btn-text);
+  font-size:16px;
+  cursor:pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+
+.btn:hover{ transform: translateY(-3px); }
+.btn:active{ transform: translateY(0); }
+
+.theme-btn{
+  position:absolute;
+  top:12px;
+  right:12px;
+  background:transparent;
+  border:0;
+  font-size:20px;
+  cursor:pointer;
+  padding:6px;
+  line-height:1;
+  border-radius:8px;
+}
+
+.theme-btn:focus,
+.btn:focus { outline: 2px solid rgba(0,0,0,0.12); outline-offset:2px; }
+
+@media (max-width:420px){
+  .container{ padding:22px; }
+  h1{ font-size:18px; }
+  .quote{ font-size:16px; min-height:68px; }
+  .btn{ font-size:15px; padding:11px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .quote { transition: none; }
+  .btn, .theme-btn { transition: none; transform: none; }
+}
